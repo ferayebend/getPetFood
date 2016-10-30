@@ -13,7 +13,11 @@ def getHtml(url):
     return req.content
 
 def getCalorie(html_string):
-    calorie = ''
+    tree = etree.HTML(html_string)
+    divs = tree.xpath('//div')
+    for div in divs:
+    	if div.attrib.get('class') == 'calorie-statement'
+    		calorie = div.text
     return calorie
 
 def main():
